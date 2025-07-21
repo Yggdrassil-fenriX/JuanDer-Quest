@@ -8,27 +8,29 @@ const LoadingPage = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate("/start");
-        }, 3000); // Simulate loading for 5 seconds
+        }, 3000);
         return () => clearTimeout(timer); // Cleanup on unmount
     }, [navigate]);
 
     return (
         <>
             <style>
-                {`.loader {
-                        width: 50%;
+                {`
+                    .loader {
+                        width: 200px;
                         height: 20px;
-                        transform: skewX(-45deg);
-                        background: 
-                            linear-gradient(#d4a373 0 0) left -30px top 0/30px 20px no-repeat 
-                            #606c38;
-                        animation: l3 1s infinite linear;
-                        border: 3px solid #bc6c25;
+                        background:
+                        linear-gradient(green 0 0) 0/0% no-repeat
+                        white;
+                        animation: l1 3s infinite linear;
+                        border-radius: 20px;
+                        border: black 2px solid;
+                        box-shadow: 2px 2px 0 rgba(0,0,0);
                     }
-
-                    @keyframes l3 {
-                        100% {background-position: right -30px top 0}
-                    }`}
+                    @keyframes l1 {
+                        100% {background-size:100%}
+                    }
+                `}
             </style>
             <div className="h-full bg-[url(./assets/Backgrounds/main-background.png)] bg-cover bg-no-repeat">
                 <div className="flex h-full flex-col items-center justify-between py-20">
