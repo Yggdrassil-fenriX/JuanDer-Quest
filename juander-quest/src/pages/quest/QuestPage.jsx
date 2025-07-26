@@ -14,7 +14,7 @@ const QuestPage = (props) => {
         "This is placeholder text used to demonstrate the visual form of a document or a typeface without relying on meaningful content. It helps designers focus on layout and design rather than the actual words. You can replace this with real content once it's available. Until then, feel free to use this text as a visual stand-in.";
 
     return (
-        <main className="h-full bg-[url('./assets/Backgrounds/background-blur.png')] bg-repeat px-3 py-7">
+        <main className="h-full bg-[url('./assets/Backgrounds/background-blur.png')] bg-repeat px-3 py-7 pb-[100px]">
             <QuestHeader prevPage="quests" />
             <img
                 src={QuestSign}
@@ -22,8 +22,8 @@ const QuestPage = (props) => {
                 className="mx-auto my-8 w-10/12"
             />
             <div className="relative">
-                <img src={ScrollImg} alt="Scroll Canvas" className="h-110" />
-                <div className="absolute inset-0 px-17 py-18">
+                <img src={ScrollImg} alt="Scroll Canvas" className="h-95 w-full" />
+                <div className="absolute inset-0 px-17 py-12">
                     <div className="mb-4 flex items-center gap-2">
                         <img
                             src={DefaultImg}
@@ -38,7 +38,7 @@ const QuestPage = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="mb-5 text-justify text-xs">
+                    <div className="mb-3 text-justify text-xs">
                         <p>{description}</p>
                     </div>
                     <div className="flex justify-end">

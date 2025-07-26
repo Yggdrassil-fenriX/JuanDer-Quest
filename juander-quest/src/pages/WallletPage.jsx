@@ -1,16 +1,55 @@
-import MyWallet from "../assets/Signs/my-wallet.png";
-import WalletAction from "../components/wallet/WalletAction";
-import BalanceBoard from "../assets/Canvas/balance-board.png";
-import NavOverlay from "../components/navigation/NavOverlay.jsx";
-
+import { useState } from "react";
 import { Link } from "react-router-dom";
+
+// Assets
+import MyWallet from "../assets/Signs/my-wallet.png";
+import BalanceBoard from "../assets/Canvas/balance-board.png";
+
+// Components
+import WalletAction from "../components/wallet/WalletAction";
+
+// Services / Popups
+import {
+    PopUpDonate,
+    PopUpRedeem, // ✨ Corrected typo: "Redeem" ➜ "Redeem"
+    PopUpTopUp,
+    PopUpEarn,
+} from "../services/wallet-services.jsx";
 
 const WalletPage = () => {
     // bg-[url('./assets/Backgrounds/background-blur.png')]
+    const [showRedeem, setShowRedeem] = useState(false);
+    const [showDonate, setShowDonate] = useState(false);
+    const [showTopUp, setShowTopUp] = useState(false);
+    const [showEarn, setShowEarn] = useState(false);
+
+    const toggleWalletAction = (actionName) => {
+        switch (actionName) {
+            case "Donate":
+                setShowDonate((prev) => !prev);
+                break;
+
+            case "Redeem":
+                setShowRedeem((prev) => !prev);
+                break;
+
+            case "TopUp":
+                setShowTopUp((prev) => !prev);
+                break;
+
+            case "Earn":
+                setShowEarn((prev) => !prev);
+                break;
+
+            default:
+                break;
+        }
+    };
+
     return (
         <>
             <main
-                className={`h-full bg-[#f8ecd2] bg-repeat pb-[1000px] px-5 py-7 text-[#712304]`}
+                className={`relative h-fit bg-[#f8ecd2] px-5 pt-7 pb-30 text-[#712304]`}
             >
                 <div className="flex items-center justify-between text-3xl">
                     <Link to="/home">
@@ -35,18 +74,31 @@ const WalletPage = () => {
                     </div>
                 </div>
                 <div className="mb-8 flex items-center justify-center gap-2">
-                    <WalletAction />
+                    <WalletAction
+                        onClick={() => {
+                            toggleWalletAction("Donate");
+                        }}
+                    />
                     <WalletAction
                         iconClass="fas fa-money-bill-transfer"
                         actionName="Redeem"
+                        onClick={() => {
+                            toggleWalletAction("Redeem");
+                        }}
                     />
                     <WalletAction
                         iconClass="fas fa-coins"
                         actionName="Top Up"
+                        onClick={() => {
+                            toggleWalletAction("TopUp");
+                        }}
                     />
                     <WalletAction
                         iconClass="fas fa-hand-holding-dollar"
                         actionName="Earn"
+                        onClick={() => {
+                            toggleWalletAction("Earn");
+                        }}
                     />
                 </div>
                 <div className="rounded-xl bg-[#d5965c] p-2 text-white">
@@ -63,7 +115,38 @@ const WalletPage = () => {
                     </p>
                 </div>
             </main>
-            <NavOverlay />
+
+            {/* PopUps */}
+            {showRedeem && (
+                <PopUpRedeem
+                    onClick={() => {
+                        toggleWalletAction("Redeem");
+                    }}
+                />
+            )}
+            {showTopUp && (
+                <PopUpTopUp
+                    onClick={() => {
+                        toggleWalletAction("TopUp");
+                    }}
+                />
+            )}
+
+            {showDonate && (
+                <PopUpDonate
+                    onClick={() => {
+                        toggleWalletAction("Donate");
+                    }}
+                />
+            )}
+
+            {showEarn && (
+                <PopUpEarn
+                    onClick={() => {
+                        toggleWalletAction("Earn");
+                    }}
+                />
+            )}
         </>
     );
 };

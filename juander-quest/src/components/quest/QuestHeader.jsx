@@ -1,4 +1,4 @@
-import UserTokenStats from "../user-stats/UserTokenStats.jsx";
+import UserTokenStats from "../user-data/UserTokenStats";
 import { Link } from "react-router-dom";
 
 const QuestHeader = (props) => {

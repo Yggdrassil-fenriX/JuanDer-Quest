@@ -6,7 +6,7 @@ const CategoryNav = (props) => {
 
     return (
         <div className="w-max flex flex-col items-center justify-center">
-            <Link to="/">
+            <Link to={`/`}>
                 <button className="rounded-2xl bg-[#4f774d] w-15 h-20 text-4xl text-white">
                     <div>
                         <i className={`${iconClass}`}></i>

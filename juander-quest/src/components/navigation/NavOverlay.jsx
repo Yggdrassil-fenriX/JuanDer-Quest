@@ -3,6 +3,7 @@ import NavLink from "./NavLink";
 import { useState } from "react";
 
 const InteractiveButton = () => {
+
     const [isClicked, setIsClicked] = useState(false);
 
     const toggleNav = () => {
@@ -32,13 +33,14 @@ const InteractiveButton = () => {
                     </div>
                     <br />
                     <div className="flex items-center justify-center gap-10">
+                        <NavLink to="profile" iconClass="fa-solid fa-user" label="Profile" />
                         {/* <NavLink to="profile" iconClass="fa-solid fa-user" label="Profile" /> */}
-                        {/* <NavLink to="settings" iconClass="fa-solid fa-gear" label="Settings" /> */}
+                        <NavLink to="map-vote" iconClass="fa-solid fa-map" label="Map Vote" />
                     </div>
                 </div>
             </div>
             <button
-                className="fixed right-1/2 bottom-1 left-1/2 z-110 w-15 -translate-x-1/2 -translate-y-1/2 rounded-full border-3 border-amber-600 bg-[#e8c49f]"
+                className={`fixed right-1/2 bottom-1 left-1/2 z-110 w-15 -translate-x-1/2 -translate-y-1/2 rounded-full border-3 border-amber-600 bg-[#e8c49f]`}
                 onClick={toggleNav}
             >
                 <img

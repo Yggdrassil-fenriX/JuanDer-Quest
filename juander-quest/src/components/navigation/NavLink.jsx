@@ -9,7 +9,7 @@ const NavLink = (props) => {
                 className={`flex h-15 w-15 flex-col items-center justify-center rounded-full bg-amber-400`}
             >
                 <i className={`${iconClass}`}></i>
-                <span className="text-xs">{label}</span>
+                <span className="text-[.65rem]">{label}</span>
             </button>
         </Link>
     );

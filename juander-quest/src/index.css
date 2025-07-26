@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import 'mapbox-gl/dist/mapbox-gl.css';
 
 /* src/index.css or src/App.css */
 .hide-scrollbar {
